@@ -11,9 +11,17 @@
     "src",
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kuchasz/sort-object-properties.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kuchasz/sort-object-properties/issues"
+  },
+  "homepage": "https://github.com/Kuchasz/sort-object-properties",
   "keywords": [],
   "author": "Rafal Pysz",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-preset-es2015": "^6.22.0",

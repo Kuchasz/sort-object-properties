@@ -10,9 +10,9 @@ npm install sort-object-properties --save
 ### Import
 ```javascript
 //ES6
-import sort from _sortGlobal;
+import sort from 'sort-object-properties';
 //CommonJS
-var sort = require(_sortGlobal);
+var sort = require('sort-object-properties');
 ```
 
 ### Simple call

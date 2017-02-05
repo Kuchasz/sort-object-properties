@@ -4,9 +4,7 @@ Simple utility that returns copy of object with sorted properties by its key nam
 ## Installation
 For your project's use:
 ```
-
 npm install sort-object-properties --save
-
 ```
 
 ## Usage

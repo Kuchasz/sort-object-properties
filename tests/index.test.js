@@ -1,4 +1,4 @@
-import sort from '../src/index';
+import sort, {value as byValue, key as byKey} from '../src/index';
 
 const _sortedAscendingKeys = ['a', 'b', 'c', 'd', 'e'];
 
@@ -24,30 +24,64 @@ const _unsortedValuesObject = {
     key5: 'c'
 };
 
-describe('sort-object-properties', () => {
-    describe('by key', () => {
+describe('_sortGlobal-object-properties', () => {
+    describe('with global function', () => {
 
-        test('ascending',() => {
+        test('ascending by key',() => {
             const _sortedObject = sort(_unsortedKeysObject);
             expect(Object.keys(_sortedObject)).toEqual(_sortedAscendingKeys);
         });
 
+        test('descending by key',() => {
+            const _sortedObject = sort(_unsortedKeysObject, ({key: aKey}, {key: bKey}) => aKey < bKey);
+            expect(Object.keys(_sortedObject)).toEqual(_sortedDescendingKeys);
+        });
+
+        test('ascending by simple value', () => {
+            const _sortedObject = sort(_unsortedValuesObject, ({value: aVal}, {value: bVal}) => aVal > bVal);
+            expect(Object.values(_sortedObject)).toEqual(_sortedAscendingValues);
+        });
+
+        test('descending by simple value', () => {
+            const _sortedObject = sort(_unsortedValuesObject, ({value: aVal}, {value: bVal}) => aVal < bVal);
+            expect(Object.values(_sortedObject)).toEqual(_sortedDescendingValues);
+        });
+
+    });
+
+    describe('with key', () => {
+
+        test('default (ascending)',() => {
+            const _sortedObject = byKey(_unsortedKeysObject);
+            expect(Object.keys(_sortedObject)).toEqual(_sortedAscendingKeys);
+        });
+
+        test('ascending',() => {
+            const _sortedObject = byKey(_unsortedKeysObject, 1);
+        expect(Object.keys(_sortedObject)).toEqual(_sortedAscendingKeys);
+        });
+
         test('descending',() => {
-            const _sortedObject = sort(_unsortedKeysObject, ({key: aKey}, {key: bKey}) => (aKey <= bKey));
+            const _sortedObject = byKey(_unsortedKeysObject, -1);
             expect(Object.keys(_sortedObject)).toEqual(_sortedDescendingKeys);
         });
 
     });
 
-    describe('by simple value', () => {
+    describe('with value', () => {
+
+        test('default (ascending)', () => {
+            const _sortedObject = byValue(_unsortedValuesObject, (value) => value);
+            expect(Object.values(_sortedObject)).toEqual(_sortedAscendingValues);
+        });
 
         test('ascending', () => {
-            const _sortedObject = sort(_unsortedValuesObject, ({value: aVal}, {value: bVal}) => (aVal >= bVal));
+            const _sortedObject = byValue(_unsortedValuesObject, (value) => value, 1);
             expect(Object.values(_sortedObject)).toEqual(_sortedAscendingValues);
         });
 
         test('descending', () => {
-            const _sortedObject = sort(_unsortedValuesObject, ({value: aVal}, {value: bVal}) => (aVal <= bVal));
+            const _sortedObject = byValue(_unsortedValuesObject, (value) => value, -1);
             expect(Object.values(_sortedObject)).toEqual(_sortedDescendingValues);
         });
 

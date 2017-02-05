@@ -13,21 +13,21 @@ npm install sort-object-properties --save
 
 | Argument        | Type | Required |            
 | ------------- | :---: | ------------- | 
-| obj      | `Object` | <ul><li>[x] item1</li></ul> |
-| sortFunction      | `SortFunction` | <ul><li>[] item1</li></ul> |
+| obj      | `Object` | <ul><li>[x]</li></ul> |
+| sortFunction      | `SortFunction` | <ul><li>[ ]</li></ul> |
 
 #####SortFunction
 
 | Argument        | Type | Required |            
 | ------------- | :---: | ------------- | 
-| a      | `SortObject` | <ul><li>[] item1</li></ul> |
-| b      | `SortObject` | <ul><li>[] item1</li></ul> |
+| a      | `SortObject` | <ul><li>[ ]</li></ul> |
+| b      | `SortObject` | <ul><li>[ ]</li></ul> |
 
 #####SortObject
 | Property        | Type | Required |            
 | ------------- | :---: | ------------- | 
-| key      | `string` | <ul><li>[] item1</li></ul> |
-| value      | `Object` | <ul><li>[] item1</li></ul> |
+| key      | `string` | <ul><li>[ ]</li></ul> |
+| value      | `Object` | <ul><li>[ ]</li></ul> |
 
 
 ## Usage

@@ -13,21 +13,21 @@ npm install sort-object-properties --save
 
 | Argument        | Type | Required |            
 | ------------- | :---: | ------------- | 
-| obj      | `Object` | <input type="checkbox" checked/> |
-| compareFunction      | `SortFunction` | <input type="checkbox" /> |
+| obj      | `Object` | [X] |
+| sortFunction      | `SortFunction` | [] |
 
 #####SortFunction
 
 | Argument        | Type | Required |            
 | ------------- | :---: | ------------- | 
-| a      | `SortObject` | <input type="checkbox"/> |
-| b      | `SortObject` | <input type="checkbox"/> |
+| a      | `SortObject` | [] |
+| b      | `SortObject` | [] |
 
 #####SortObject
 | Property        | Type | Required |            
 | ------------- | :---: | ------------- | 
-| key      | `string` | <input type="checkbox"/> |
-| value      | `Object` | <input type="checkbox"/> |
+| key      | `string` | [] |
+| value      | `Object` | [] |
 
 
 ## Usage

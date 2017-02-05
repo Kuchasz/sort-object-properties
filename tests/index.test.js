@@ -1,4 +1,4 @@
-import sort, {value as byValue, key as byKey} from '../src/index';
+import sort, { value as byValue, key as byKey } from '../src/index';
 
 const _sortedAscendingKeys = ['a', 'b', 'c', 'd', 'e'];
 
@@ -24,7 +24,7 @@ const _unsortedValuesObject = {
     key5: 'c'
 };
 
-describe('_sortGlobal-object-properties', () => {
+describe('sort-object-properties', () => {
     describe('with global function', () => {
 
         test('ascending by key',() => {

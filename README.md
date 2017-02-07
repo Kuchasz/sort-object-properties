@@ -45,14 +45,19 @@ _By default sorts object ascending by its keys. Use second parameter if need mor
 | obj           | `Object`       | _false_  | Object to sort               |
 | sortFunction  | `SortFunction` | _true_   | Function used to sort object |
 
-##### SortFunction
+---
+
+`SortFunction`
 
 | Argument   | Type             | Optional | Description         |
 | ---------- | :--------------: | :------: | :----------         |
 | a          | `PropertyObject` | _true_   | Left side property  |
 | b          | `PropertyObject` | _true_   | Right side property |
 
-##### PropertyObject
+---
+
+`PropertyObject`
+
 | Property   | Type                         | Optional | Description               |
 | ---------- | :--------------------------: | :------: | :------------------------ |
 | key        | `string`, `number`, `Symbol` | _true_   | Key used in parent object |
@@ -65,7 +70,7 @@ _Sorts object properties by its values._
 | ------------- | :-----------------------: | :------: | :----------                           |
 | obj           | `Object`                  | _false_  | Object to sort                        |
 | direction     | `SortDirection`, `Number` | _true_   | Sort direction                        |
-| valueSelector | `Function`                | _true_   | Function that return deeper property  |
+| valueSelector | `Function`                | _true_   | Function that return simple value from complex type properties  |
 
 ### key function
 _Sorts object properties by its keys._
@@ -75,7 +80,7 @@ _Sorts object properties by its keys._
 | obj        | `PropertyObject`          | _false_  | Object to sort   |
 | direction  | `SortDirection`, `Number` | _true_   | Sort direction   |
 
-### sortDirection const
+### sortDirection constant
 _Constant with sort directions, use that const or just use plain numbers in function calls._
 
 | Name | Value |

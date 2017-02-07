@@ -1,4 +1,4 @@
-import sort, { value as byValue, key as byKey } from '../src/index';
+import sort, { value as byValue, key as byKey, sortDirection } from '../src/index';
 
 const _sortedAscendingKeys = ['a', 'b', 'c', 'd', 'e'];
 
@@ -22,6 +22,44 @@ const _unsortedValuesObject = {
     key3: 'e',
     key4: 'b',
     key5: 'c'
+};
+
+
+
+const _sortedAscendingComplexValues = {
+    key1: {
+        prop: 'a'
+    },
+    key2: {
+        prop: 'b'
+    },
+    key3: {
+        prop: 'c'
+    }
+};
+
+const _sortedDescendingComplexValues = {
+    key3: {
+        prop: 'c'
+    },
+    key2: {
+        prop: 'b'
+    },
+    key1: {
+        prop: 'a'
+    }
+};
+
+const _unsortedComplexValuesObject = {
+    key2: {
+        prop: 'b'
+    },
+    key3: {
+        prop: 'c'
+    },
+    key1: {
+        prop: 'a'
+    }
 };
 
 describe('sort-object-properties', () => {
@@ -68,22 +106,49 @@ describe('sort-object-properties', () => {
 
     });
 
-    describe('with value', () => {
+    describe('with simple value', () => {
 
         test('default (ascending)', () => {
-            const _sortedObject = byValue(_unsortedValuesObject, (value) => value);
+            const _sortedObject = byValue(_unsortedValuesObject);
             expect(Object.values(_sortedObject)).toEqual(_sortedAscendingValues);
         });
 
         test('ascending', () => {
-            const _sortedObject = byValue(_unsortedValuesObject, (value) => value, 1);
+            const _sortedObject = byValue(_unsortedValuesObject, 1);
             expect(Object.values(_sortedObject)).toEqual(_sortedAscendingValues);
         });
 
         test('descending', () => {
-            const _sortedObject = byValue(_unsortedValuesObject, (value) => value, -1);
+            const _sortedObject = byValue(_unsortedValuesObject, -1);
             expect(Object.values(_sortedObject)).toEqual(_sortedDescendingValues);
         });
 
     });
+
+    describe('with complex value', () => {
+
+        test('ascending', () => {
+            const _sortedObject = byValue(_unsortedComplexValuesObject, 1, (value) => value.prop);
+            expect(_sortedObject).toEqual(_sortedAscendingComplexValues);
+        });
+
+        test('descending', () => {
+            const _sortedObject = byValue(_unsortedComplexValuesObject, -1, (value) => value.prop);
+            expect(_sortedObject).toEqual(_sortedDescendingComplexValues);
+        });
+
+    });
+
+    describe('constant values', () => {
+
+        test('ascending direction', () => {
+            expect(sortDirection.ascending).toEqual(1);
+        });
+
+        test('descending direction', () => {
+            expect(sortDirection.descending).toEqual(-1);
+        });
+
+    });
+
 });

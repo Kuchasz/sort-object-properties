@@ -58,12 +58,33 @@ _By default sorts object ascending by its keys. Use second parameter if need mor
 | key        | `string`, `number`, `Symbol` | _true_   | Key used in parent object |
 | value      | `any`                        | _true_   | Value assigned to key     |
 
-### Value function
+### value function
+_Sorts object properties by its values._
 
-### Key function
+| Argument      | Type                      | Optional | Description                           |
+| ------------- | :-----------------------: | :------: | :----------                           |
+| obj           | `Object`                  | _false_  | Object to sort                        |
+| direction     | `SortDirection`, `Number` | _true_   | Sort direction                        |
+| valueSelector | `Function`                | _true_   | Function that return deeper property  |
+
+### key function
+_Sorts object properties by its keys._
+
+| Argument   | Type                      | Optional | Description      |
+| ---------- | :-----------------------: | :------: | :--------------- |
+| obj        | `PropertyObject`          | _false_  | Object to sort   |
+| direction  | `SortDirection`, `Number` | _true_   | Sort direction   |
+
+### sortDirection const
+_Constant with sort directions, use that const or just use plain numbers in function calls._
+
+| Name | Value |
+| ---- | --- |
+| ascending | 1 |
+| descending | -1 |
 
 ## Examples
-### Sort by values
+### Sort by values using global function
 ```javascript
 const objectWithUnsortedValues = {
     key1: 'd',
@@ -85,5 +106,53 @@ console.log(sortedObject);
     key5: 'c'
     key1: 'd',
     key3: 'e',
+*/
+```
+
+### Sort by values using values function
+```javascript
+import { value as sortByValue } from 'sort-object-properties';
+
+const objectWithUnsortedValues = {
+    key1: 'd',
+    key2: 'a',
+    key3: 'e',
+    key4: 'b',
+    key5: 'c'
+};
+
+var sortedObject = sortByValue(objectWithUnsortedValues);
+
+console.log(sortedObject);
+/*
+    key2: 'a',
+    key4: 'b',
+    key5: 'c'
+    key1: 'd',
+    key3: 'e',
+*/
+```
+
+### Sort by keys using key function
+```javascript
+import { key as sortByKey, sortDirection } from 'sort-object-properties';
+
+const objectWithUnsortedKeys = {
+    key1: 'c',
+    key2: 'd',
+    key3: 'c',
+    key4: 'e',
+    key5: 'a'
+};
+
+var sortedObject = sortByKey(objectWithUnsortedKeys, sortDirection.descending);
+
+console.log(sortedObject);
+/*
+    key5: 'a',
+    key4: 'e',
+    key3: 'c',
+    key2: 'd',
+    key1: 'c'
 */
 ```

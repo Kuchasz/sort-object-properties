@@ -114,12 +114,12 @@ describe('sort-object-properties', () => {
         });
 
         test('ascending', () => {
-            const _sortedObject = byValue(_unsortedValuesObject, 1);
+            const _sortedObject = byValue(_unsortedValuesObject, sortDirection.ascending);
             expect(Object.values(_sortedObject)).toEqual(_sortedAscendingValues);
         });
 
         test('descending', () => {
-            const _sortedObject = byValue(_unsortedValuesObject, -1);
+            const _sortedObject = byValue(_unsortedValuesObject, sortDirection.descending);
             expect(Object.values(_sortedObject)).toEqual(_sortedDescendingValues);
         });
 
@@ -128,12 +128,12 @@ describe('sort-object-properties', () => {
     describe('with complex value', () => {
 
         test('ascending', () => {
-            const _sortedObject = byValue(_unsortedComplexValuesObject, 1, (value) => value.prop);
+            const _sortedObject = byValue(_unsortedComplexValuesObject, sortDirection.ascending, (value) => value.prop);
             expect(_sortedObject).toEqual(_sortedAscendingComplexValues);
         });
 
         test('descending', () => {
-            const _sortedObject = byValue(_unsortedComplexValuesObject, -1, (value) => value.prop);
+            const _sortedObject = byValue(_unsortedComplexValuesObject, sortDirection.descending, (value) => value.prop);
             expect(_sortedObject).toEqual(_sortedDescendingComplexValues);
         });
 

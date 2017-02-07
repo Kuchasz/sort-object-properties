@@ -138,10 +138,10 @@ console.log(sortedObject);
 import { key as sortByKey, sortDirection } from 'sort-object-properties';
 
 const objectWithUnsortedKeys = {
-    key1: 'c',
-    key2: 'd',
-    key3: 'c',
     key4: 'e',
+    key1: 'c',
+    key3: 'c',
+    key2: 'd',
     key5: 'a'
 };
 
